@@ -16,48 +16,48 @@ Practicing compassionate code reviews is important (you can learn more from this
 ## Base Required Features 
 
 - Multi-Part Form:  
-  - [ ] Able to add feedback
-    - [ ] Data collected on individual pages & components
-    - [ ] Click on next takes you to the next page in sequence
-    - [ ] Data saves in DB after *all* the parts are completed (not piecemeal)
-    - [ ] Thank you page takes you back to the first view
-    - [ ] Old Data is cleared on form completion
+  - [ X ] Able to add feedback
+    - [ X ] Data collected on individual pages & components
+    - [ X ] Click on next takes you to the next page in sequence
+    - [ X ] Data saves in DB after *all* the parts are completed (not piecemeal)
+    - [ X ] Thank you page takes you back to the first view
+    - [ X ] Old Data is cleared on form completion
 
 - Client code:
-  - [ ]  Individual components for each form part
-  - [ ]  Redux setup complete
-    - [ ] Store linked to react with `<Provider>`
-    - [ ] Store setup with reducer(s) and logger middleware 
-  - [ ] Reducers & Actions Working
-    - [ ] Actions are in SCREAMING_SNAKE_CASE and semantically named
-    - [ ] Actions have a `type` key, and `payload` if sending data
-    - [ ] Reducers are returning a new state, or the old state (not mutating)
-    - [ ] Reducers are using spread correctly (to keep old data, while adding new)
-  - [ ] Review Component shows at all times with current redux state
-  - [ ] React-Redux Working
-    - [ ] Dispatching actions onClick
-    - [ ] Grabbing data from the redux store with `useSelector`
-  - [ ] Axios POST request to add feedback
+  - [ X ]  Individual components for each form part
+  - [ X ]  Redux setup complete
+    - [ X ] Store linked to react with `<Provider>`
+    - [ X ] Store setup with reducer(s) and logger middleware 
+  - [ X ] Reducers & Actions Working
+    - [ X ] Actions are in SCREAMING_SNAKE_CASE and semantically named
+    - [ X ] Actions have a `type` key, and `payload` if sending data
+    - [ X ] Reducers are returning a new state, or the old state (not mutating)
+    - [ X ] Reducers are using spread correctly (to keep old data, while adding new)
+  - [ X ] Review Component shows at all times with current redux state
+  - [ X ] React-Redux Working
+    - [ X ] Dispatching actions onClick
+    - [ X ] Grabbing data from the redux store with `useSelector`
+  - [ X ] Axios POST request to add feedback
 
 
 - Server code:   
-  - [ ] Router made for GET, POST
+  - [ X ] Router made for GET, POST
 
 
 ## General Items
 Feedback should be provided for these items, but they do not impact scoring.
 
 - Git 
-  - [ ] Multiple git commits showing incremental progress
-  - [ ] Commits are descriptive of the changes made or feature added 
-  - [ ] Has .gitignore with node_modules
-  - [ ] Readme file updated (assuming this is previously discussed)
+  - [ X ] Multiple git commits showing incremental progress
+  - [ X ] Commits are descriptive of the changes made or feature added 
+  - [ X ] Has .gitignore with node_modules
+  - [ X ] Readme file updated (assuming this is previously discussed)
 - Code Style 
-  - [ ] Appropriate amount of code comments
-  - [ ] Code is consistently formatted
+  - [ X ] Appropriate amount of code comments
+  - [ X ] Code is consistently formatted
 - Client
-  - [ ] Appropriate use of HTML tags
-  - [ ] Basic CSS styling with margins/padding
+  - [ X ] Appropriate use of HTML tags
+  - [ X ] Basic CSS styling with margins/padding
 
 
 ## Stretch Goals
@@ -65,30 +65,30 @@ First must be complete for score of  _Exceeds Expectations_
 
 - Previous Steps
   - [ ] allows a user to go to a previous step, either directly or by cycling backward thru the steps
-  - [ ] user can upate their score for a step
+  - [ X ] user can upate their score for a step
     - [ ] new score is validated to not be empty
-    - [ ] redux is updated with new score
-  - [ ] user can continue on to review page and submit as in Base Mode
+    - [ X ] redux is updated with new score
+  - [ X ] user can continue on to review page and submit as in Base Mode
 
 
 - Admin View
-  - [ ] All entries are visible with correct data from inputs
-    - [ ] Most recent is at the top
-  - [ ] Can Delete an entry
-    - [ ] User is prompted before deleting
-  - [ ] Axios GET request to get all feedback for `/admin` view in componentDidMount
+  - [ X ] All entries are visible with correct data from inputs
+    - [ X ] Most recent is at the top
+  - [ X ] Can Delete an entry
+    - [ X ] User is prompted before deleting
+  - [ X ] Axios GET request to get all feedback for `/admin` view in componentDidMount
 
   Busywork Goals, consider removing or making more useful
 
-- [ ] Styling with Material UI
-- [ ] Ability to flag a feedback item on `/admin` for further review
+- [ X ] Styling with Material UI
+- [ X ] Ability to flag a feedback item on `/admin` for further review
 - [ ] Deployed to Heroku
 
 
 ## Markdown
 
 ```
-Hey ___,
+Hey _TORMOD__,
 
 General Feedback.
 
@@ -112,15 +112,30 @@ Notes on the above Functional Requirements.
 ---
 | General Items | Complete? |
 | --- | :---: |
-| More than 15 git commits | no |
-| Commits are descriptive of the changes made or feature added | no |
-| Readme file updated | no |
-| Appropriate amount of code comments | no |
-| Code is consistently formatted | no |
-| Server code organized with router & module files | no |
+| More than 15 git commits | yes |
+| Commits are descriptive of the changes made or feature added | at the start, yes, at the end, no |
+| Readme file updated | yes |
+| Appropriate amount of code comments | yes |
+| Code is consistently formatted | yes |
+| Server code organized with router & module files | yes |
 
 ---
 ### Notes:
+Hey great job Tormod, I really like the added pictures, it made the vibe of the overall project much better. 
+
+I also really liked your incorporation of MUI, especially the prompt box when the delete item button is clicked. You set this project up with a lot less code than I thought would be needed, so it's really cool to see you being efficient in that way!
+
+I do have a few things I think could have been improved, respectfully.
+
+1. It would have been nice to see a physical "back" button for each page, rather than just relying on clicking the browser's back button. For all intents and purposes, this works fine, but would have made the use interface easier to digest.
+
+2. I also think ideally you'd want to start each component page with empty values, and incorporate a 'required' attribute. The way it's set up now, if there's a bunch of jokesters wanting to spam your database, they can just keep pressing next over and over and over again without any deterrent to slow down. 
+
+3. Your flagged button works when you click it, unless it's clicked directly on the flag. It would be nicer to also see it centered in the button. It's not a huge deal but it was a little confusing when it wouldn't switch back for me at first.
+
+4. Similar problem as before, if you click on the delete icon in the delete button, and confirm you'd like to delete the row, it will not delete it. 
+
+5. Overall the project looks great and the way you coded it was super clever! Nice job.
 
 Notes on General Items
 
